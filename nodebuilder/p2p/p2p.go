@@ -5,14 +5,14 @@ import (
 	"fmt"
 	"reflect"
 
+	libhost "github.com/libp2p/go-libp2p-core/host"
+	"github.com/libp2p/go-libp2p-core/metrics"
+	"github.com/libp2p/go-libp2p-core/network"
+	"github.com/libp2p/go-libp2p-core/peer"
+	"github.com/libp2p/go-libp2p-core/protocol"
 	pubsub "github.com/libp2p/go-libp2p-pubsub"
-	libhost "github.com/libp2p/go-libp2p/core/host"
-	"github.com/libp2p/go-libp2p/core/metrics"
-	"github.com/libp2p/go-libp2p/core/network"
-	"github.com/libp2p/go-libp2p/core/peer"
-	"github.com/libp2p/go-libp2p/core/protocol"
+	rcmgr "github.com/libp2p/go-libp2p-resource-manager"
 	basichost "github.com/libp2p/go-libp2p/p2p/host/basic"
-	rcmgr "github.com/libp2p/go-libp2p/p2p/host/resource-manager"
 	"github.com/libp2p/go-libp2p/p2p/net/conngater"
 )
 

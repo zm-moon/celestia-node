@@ -6,7 +6,7 @@ import (
 
 	ipldFormat "github.com/ipfs/go-ipld-format"
 	logging "github.com/ipfs/go-log/v2"
-	"github.com/libp2p/go-libp2p/core/peer"
+	"github.com/libp2p/go-libp2p-core/peer"
 
 	"github.com/celestiaorg/celestia-node/share"
 	"github.com/celestiaorg/celestia-node/share/availability/discovery"

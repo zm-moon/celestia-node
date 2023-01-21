@@ -7,7 +7,7 @@ import (
 
 	"github.com/ipfs/go-datastore"
 	ds_sync "github.com/ipfs/go-datastore/sync"
-	libhost "github.com/libp2p/go-libp2p/core/host"
+	libhost "github.com/libp2p/go-libp2p-core/host"
 	mocknet "github.com/libp2p/go-libp2p/p2p/net/mock"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"

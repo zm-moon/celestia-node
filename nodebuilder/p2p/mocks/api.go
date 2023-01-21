@@ -9,11 +9,18 @@ import (
 	reflect "reflect"
 
 	gomock "github.com/golang/mock/gomock"
+<<<<<<< HEAD
 	metrics "github.com/libp2p/go-libp2p/core/metrics"
 	network "github.com/libp2p/go-libp2p/core/network"
 	peer "github.com/libp2p/go-libp2p/core/peer"
 	protocol "github.com/libp2p/go-libp2p/core/protocol"
 	rcmgr "github.com/libp2p/go-libp2p/p2p/host/resource-manager"
+=======
+	metrics "github.com/libp2p/go-libp2p-core/metrics"
+	network "github.com/libp2p/go-libp2p-core/network"
+	peer "github.com/libp2p/go-libp2p-core/peer"
+	protocol "github.com/libp2p/go-libp2p-core/protocol"
+>>>>>>> parent of c1e51f81 (deps: bump go-libp2p and all supporting pkgs (#1547))
 )
 
 // MockModule is a mock of Module interface.
