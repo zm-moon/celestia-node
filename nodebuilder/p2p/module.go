@@ -2,10 +2,8 @@ package p2p
 
 import (
 	logging "github.com/ipfs/go-log/v2"
-	"github.com/libp2p/go-libp2p"
 	"github.com/libp2p/go-libp2p-core/metrics"
 	"github.com/libp2p/go-libp2p-core/network"
-	rcmgr "github.com/libp2p/go-libp2p-resource-manager"
 	"go.uber.org/fx"
 
 	"github.com/celestiaorg/celestia-node/nodebuilder/node"
@@ -45,7 +43,7 @@ func ConstructModule(tp node.Type, cfg *Config) fx.Option {
 			"p2p",
 			baseComponents,
 			fx.Provide(func() (network.ResourceManager, error) {
-				return rcmgr.NewResourceManager(rcmgr.NewFixedLimiter(rcmgr.InfiniteLimits))
+				return network.NullResourceManager, nil
 			}),
 		)
 	case node.Light:
@@ -53,9 +51,7 @@ func ConstructModule(tp node.Type, cfg *Config) fx.Option {
 			"p2p",
 			baseComponents,
 			fx.Provide(func() (network.ResourceManager, error) {
-				limits := rcmgr.DefaultLimits
-				libp2p.SetDefaultServiceLimits(&limits)
-				return rcmgr.NewResourceManager(rcmgr.NewFixedLimiter(limits.AutoScale()))
+				return network.NullResourceManager, nil
 			}),
 		)
 	default:
