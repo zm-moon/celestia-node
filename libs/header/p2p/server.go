@@ -53,21 +53,20 @@ func NewExchangeServer[H header.Header](
 		return nil, err
 	}
 
-	return &ExchangeServer[H]{
+	serv := &ExchangeServer[H]{
 		protocolID: protocolID(protocolSuffix),
 		host:       host,
 		getter:     getter,
 		Params:     params,
-	}, nil
+	}
+	serv.host.SetStreamHandler(serv.protocolID, serv.requestHandler)
+	return serv, nil
 }
 
 // Start sets the stream handler for inbound header-related requests.
 func (serv *ExchangeServer[H]) Start(context.Context) error {
 	serv.ctx, serv.cancel = context.WithCancel(context.Background())
 	log.Info("server: listening for inbound header requests")
-
-	serv.host.SetStreamHandler(serv.protocolID, serv.requestHandler)
-
 	return nil
 }
 
